@@ -10,12 +10,11 @@ if (isset($_POST["upload"])){
 function newPost()
 {
 	$name = Input::escape(Input::get("name"));
-	$category = Input::escape(Input::get("category"));
-	$sub_category = Input::escape(Input::get("sub_category"));
 	$price = Input::escape(Input::get("price"));
 	$description = Input::escape(Input::get("description"));
 	$pick_up_location = Input::escape(Input::get("pick_up_location"));
-	$location_city = Input::escape(Input::get("location_city"));
+	$category = Input::escape(Input::get("category"));
+	$sub_category = Input::escape(Input::get("sub_category"));
 	$image = Input::escape(Input::get("image"));
 
 	if(!is_numeric($price)) {
@@ -31,15 +30,14 @@ function newPost()
 	$newPost = new Ads();
 	$newPost->user_id = $user_id;
 	$newPost->username = $username;
-	$newPost->date_posted = $date_posted;
 	$newPost->name = $name;
-	$newPost->category = $category;
-	$newPost->sub_category = $sub_category;
 	$newPost->price = $price;
+	$newPost->date_posted = $date_posted;
 	$newPost->description = $description;
 	$newPost->availability_status = "available";
 	$newPost->pick_up_location = $pick_up_location;
-	$newPost->location_city = $location_city;
+	$newPost->category = $category;
+	$newPost->sub_category = $sub_category;
 	$newPost->image = $image;
 	$newPost->insertAd();
 
@@ -75,14 +73,6 @@ newPost();
 					<input type="text" name="name"></input>
 				</div>
 				<div class="form-group">
-					<label for="category">Category:</label>
-					<input type="text" name="category"></input>
-				</div>
-				<div class="form-group">
-					<label for="sub_category">Sub-Category:</label>
-					<input type="text" name="sub_category"></input>
-				</div>
-				<div class="form-group">
 					<label for="price">Price:</label>
 					<input type="text" name="price"></input>
 				</div>
@@ -95,8 +85,12 @@ newPost();
 					<input type="text" name="pick_up_location"></input>
 				</div>
 				<div class="form-group">
-					<label for="location_city">Location City:</label>
-					<input type="text" name="location_city"></input>
+					<label for="category">Category:</label>
+					<input type="text" name="category"></input>
+				</div>
+				<div class="form-group">
+					<label for="sub_category">Sub-Category:</label>
+					<input type="text" name="sub_category"></input>
 				</div>
 				<div class="form-group">
 					<label for="image">Image:</label>
