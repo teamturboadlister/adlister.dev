@@ -2,7 +2,7 @@
 <nav id="slide-menu" >
    <ul>
       <li><img class= "menu-icon" src="/img/create-ad.png" alt="Ceate ad" width="28" height="28"><a href="http://adlister.dev">Create Ad</a></i>
-      <li><img class= "menu-icon" src="/img/create-user.png" alt="create Account" width="28" height="28"><a href="/signup.php">Create Account</a></li>
+      <li><img class= "menu-icon" src="/img/create-user.png" alt="create Account" width="28" height="28"><a href="/signup">Create Account</a></li>
       <li class="sep"></li>
       <li><img class= "menu-icon" src="/img/armor.png" alt="Armor" width="28" height="28"><a href="http://adlister.dev">Armor</a></li>
       <li><img class= "menu-icon" src="/img/weapons.png" alt="Weapons" width="28" height="28"><a href="http://adlister.dev">Weapons</a></li>
