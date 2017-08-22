@@ -24,9 +24,7 @@ class User extends Model {
     public static function findByUsernameOrEmail($usernameOrEmail)
     {
         self::dbConnect();
-
         $query = 'SELECT * FROM ' . self::$table . ' WHERE username = :username OR email = :email';
-
         $stmt = self::$connection->prepare($query);
         $stmt->bindValue(':username', $usernameOrEmail, PDO::PARAM_STR);
         $stmt->bindValue(':email', $usernameOrEmail, PDO::PARAM_STR);

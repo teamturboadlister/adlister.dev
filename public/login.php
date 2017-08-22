@@ -5,23 +5,31 @@
    require_once "../utils/Auth.php";
    require_once __DIR__ . " /../utils/helper_functions.php";
 
+ // $user = User::findByUsernameOrEmail($usernameOrEmai);
    if(!empty($_POST)) {
-            $username = Input::get("email_user");
-            $password = Input::get("password");
-            $log = new Log();
-            if(Auth::attempt($username, $password)) {
-                $log->info("$username logged in successfully. ");
-                header("Location: http://adlister.dev/account.php");
-                die();
-            } else {
-                $log->info("$username failed to log in.");
-                // send a message to the user that their username or password
-                $data['inputClass'] = "form-group has-error";
-                $data['usernamePlaceholder'] = "Username/email or password is incorrect";
-                $data['background'] = "error";
-                $data['username'] = $username;
-            }
-}
+	   $username = Input::get("usernameOrEmail)");
+	   $password = Input::get("password");
+	   $log = new Log();
+        // makes sure the values passed in are not empty
+        if(($username == '' || $username == null) || ($password == '' || $password == null)) {
+            $_SESSION['ERROR_MESSAGE'] = 'Login information is incorrect';
+			$log->info("$username failed to log in.");
+			$data['inputClass'] = "form-group has-error";
+			$data['background'] = "error";
+            return false;
+        }
+        // checks password submitted against hashed password
+        if (password_verify($password, $user->password)) {
+            // sets session variables used for logged in user
+            $_SESSION['IS_LOGGED_IN'] = $user->username;
+            $_SESSION['LOG_IN_EMAIL'] = $user->email;
+            $_SESSION['LOGGED_IN_ID'] = $user->user_id;
+			$log->info("$username logged in successfully. ");
+            header("Location: http://adlister.dev/account.php");
+            die();
+            return true;
+        }
+	}
 
     ?>
 

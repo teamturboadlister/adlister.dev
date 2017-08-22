@@ -5,9 +5,32 @@ require_once __DIR__ . '/../bootstrap.php';
 require_once '../models/User.php';
 require_once '../utils/Auth.php';
 
-  $user = Auth::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
+  // $user = Auth::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
+  $user = [];
+  		$message = "";
+  		$username = (isset($_POST['username'])) ? $_POST['username'] : "";
+  		$password = (isset($_POST['password'])) ? $_POST['password'] : "";
 
-
+  // 		if(empty($_POST)) {
+  // 			if($username == "username" && $password == "password"){
+  // 				header("Location:/account.php");
+  // 				die();
+  // 			} else {
+  // 				$message = "Invalid login!";
+  // 			}
+  // 		}
+  // 		$user = [
+        //     $_SESSION['IS_LOGGED_IN'] = $user->username,
+        //     $_SESSION['LOG_IN_EMAIL'] = $user->email,
+        //     $_SESSION['LOGGED_IN_ID'] = $user->user_id,
+	    //     'message' => $message
+  // 		];
+          	//return $user;
+  		if(isset($_GET['logout'])) {
+  			logout();
+  			header("Location:/logout.php");
+  			die();
+  		}
 
   function logout()
    {
@@ -44,8 +67,6 @@ require_once '../utils/Auth.php';
             <h4> User Name <?=$user->username; ?></h4>
             <h4> Email <?=$user->email; ?><h4>
             <form method="POST" >
-                <label for "username">User Name</label>
-                <input id="username" type="text" name="username">
                 <br>
                 <a class="btn-btn-primary" href="/edit.php" > Edit Account </a>
                 <a class="btn-btn-primary" href="/../ads/create.php"> Post An Ad </a>
