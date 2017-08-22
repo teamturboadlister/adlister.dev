@@ -1,8 +1,8 @@
 <br />
 
 <br />
-<div><section>
-<h5 class="center-div">Hover over the circle below</h5>
+<div ><section class="hover-text">
+<h5 >Hover over the circle below</h5>
 </section>
 </div>
 <div class="footer">
