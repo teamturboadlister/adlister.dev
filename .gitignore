@@ -1,6 +1,5 @@
+env.php
+database/env.php
 .env.php
 .env.*.php
 /.idea
-
-env.php
-database/env.php
