@@ -5,16 +5,11 @@
    require_once '../models/User.php';
    require_once '../utils/Auth.php';
 
-<<<<<<< HEAD
-  // $user = Auth::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
-  $user = [];
-  		$message = "";
-  		$username = (isset($_POST['username'])) ? $_POST['username'] : "";
-  		$password = (isset($_POST['password'])) ? $_POST['password'] : "";
-=======
      $user = Auth::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
-
->>>>>>> 25e179a83e55c272df20b7a662416a5b3d0b6988
+     $user = [];
+      $message = "";
+      $username = (isset($_POST['username'])) ? $_POST['username'] : "";
+      $password = (isset($_POST['password'])) ? $_POST['password'] : "";
 
   // 		if(empty($_POST)) {
   // 			if($username == "username" && $password == "password"){
@@ -64,31 +59,6 @@
          <div class="container center-div">
             <h1> Iron List Account Settings </h1>
             <h2> Welcome <?=  $user->name ?></h2>
-<<<<<<< HEAD
-            <?php include 'assets/menu.php';?>
-            <!-- menu panel -->
-            <div id="content">
-               <div class="menu-trigger"></div>
-               <!-- header panel -->
-               <?php include 'assets/header.php';?>
-               <!-- Content panel -->
-                   <?php include_once 'assets/menu.php' ?>
-
-        <div class="container">
-            <h4> User Id <?=$user->user_id; ?></h4>
-            <h4> User Name <?=$user->username; ?></h4>
-            <h4> Email <?=$user->email; ?><h4>
-            <form method="POST" >
-                <br>
-                <a class="btn-btn-primary" href="/edit.php" > Edit Account </a>
-                <a class="btn-btn-primary" href="/../ads/create.php"> Post An Ad </a>
-                <a class="btn-btn-primary" href="/show.php"> My Ads </a>
-                <br>
-                <button type ='submit' name='logout'>Logout</button>
-            </form>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-=======
             <div class="container">
                <h4> User Id <?=$user->user_id; ?></h4>
                <h4> User Name <?=$user->username; ?></h4>
@@ -109,7 +79,6 @@
          </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
->>>>>>> 25e179a83e55c272df20b7a662416a5b3d0b6988
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
       <script type="text/javascript" src="js/main.js"></script>
       <script type="text/javascript" src="js/menu.js"></script>

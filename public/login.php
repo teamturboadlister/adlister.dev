@@ -1,35 +1,16 @@
 <?php
 	session_start();
-   require_once __DIR__ .  '/../database/db_connect.php';
-   require_once "../utils/Input.php";
-   require_once "../utils/Auth.php";
-   require_once __DIR__ . " /../utils/helper_functions.php";
+	require_once __DIR__ . "/../bootstrap.php";
 
- // $user = User::findByUsernameOrEmail($usernameOrEmai);
-   if(!empty($_POST)) {
-	   $username = Input::get("usernameOrEmail)");
-	   $password = Input::get("password");
-	   $log = new Log();
-        // makes sure the values passed in are not empty
-        if(($username == '' || $username == null) || ($password == '' || $password == null)) {
-            $_SESSION['ERROR_MESSAGE'] = 'Login information is incorrect';
-			$log->info("$username failed to log in.");
-			$data['inputClass'] = "form-group has-error";
-			$data['background'] = "error";
-            return false;
-        }
-        // checks password submitted against hashed password
-        if (password_verify($password, $user->password)) {
-            // sets session variables used for logged in user
-            $_SESSION['IS_LOGGED_IN'] = $user->username;
-            $_SESSION['LOG_IN_EMAIL'] = $user->email;
-            $_SESSION['LOGGED_IN_ID'] = $user->user_id;
-			$log->info("$username logged in successfully. ");
-            header("Location: http://adlister.dev/account.php");
-            die();
-            return true;
-        }
-	}
+   //$user = User::findByUsernameOrEmail($usernameOrEmai);
+    if(!empty($_POST)) {
+      $username = Input::get("username)");
+      $password = Input::get("password");
+      $log = new Log();
+	  var_dump($_POST);
+		Auth::attempt($username, $password);
+
+   }
 
     ?>
 
