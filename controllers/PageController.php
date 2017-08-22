@@ -28,6 +28,20 @@ function pageController()
             $mainView = '../views/users/edit.php';
             break;
 
+        case '/signup':
+                $mainView = '../public/signup.php';
+                if(!empty($_POST)) {
+                        $user = new User;
+                        $user->name = Input::get('name');
+                        $user->email = Input::get('email');
+                        $user->username = Input::get('username');
+                        $user->password = Input::get('password');
+                            $user->save();
+                            header( 'location: /users/account');
+                            die;
+                    }
+                break;
+
         case '/users/account':
             if (!empty($_GET['search'])) {
                 header("Location: /results?search=". $_GET['search']);
@@ -49,11 +63,12 @@ function pageController()
                 break;
 
             case '/login':
+
                 if (!empty($_GET['search'])) {
                     header("Location: /results?search=". $_GET['search']);
                 }
                 $mainView = '../public/login.php';
-                
+
                 if(!empty($_POST)) {
                     $username = Input::get('username');
                     $password = Input::get('password');
@@ -66,7 +81,7 @@ function pageController()
                 }
 
                 $data['message'] = '';
-                
+
                 break;
 
             case '/create':

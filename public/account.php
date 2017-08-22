@@ -3,7 +3,7 @@
    require_once __DIR__ . '/../bootstrap.php';
 
      $user = User::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
-     
+
      function logout()
       {
        session_unset();
