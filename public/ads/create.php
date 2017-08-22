@@ -103,7 +103,7 @@ newPost();
 		 	  	</div>
 		    </form>
 		    <!-- filestack button -->
-		    <input type="button" value="Pick Watermark" id="pickWatermark" >
+		    <input type="button" value="Upload Image" id="pickWatermark" >
 		</div>
 		
 	</div>
@@ -114,7 +114,19 @@ newPost();
         document.getElementById("pickWatermark").addEventListener("click", pickMark);
         function pickMark() {
         	console.log("Picking Watermark");
-        	client.pick({});
+        	client.pick({
+        		accept: 'image/*',
+        		fromSources:
+        		['local_file_system', 'facebook', 'googledrive', 'dropbox', 'imagesearch', 'webcam',],
+        		maxFiles: 3,
+        	}).then(function(result){
+        		console.log(JSON.stringify(result));
+        		console.log(result.filesUploaded[0].url);
+        		var url = result.filesUploaded[0].url;
+        		console.log(url);
+        		var handle = url.substring(33, 52);
+        		console.log(handle);
+        	});
         }
 
     </script>
