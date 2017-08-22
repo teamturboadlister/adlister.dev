@@ -3,9 +3,6 @@ require_once __DIR__ . "../../../bootstrap.php";
 
 session_start();
 
-if (isset($_POST["upload"])){
-	$target = "/../img/.basename($_FILES["image"])"
-}
 
 function newPost()
 {
@@ -100,7 +97,7 @@ newPost();
 				</div>
 				<div class="form-group">
 					<label for="image">Image:</label>
-					<input type="file" name="image"></input>	
+					<input type="file" id="image" name="image"></input>	
 				</div>
 				<div class="row">
 			        <div class="col-sm-6">
@@ -112,6 +109,10 @@ newPost();
 		
 	</div>
 </div>
+	<!-- filestack api -->
+	<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+	<!-- link to custom js using filestack-->
+	<script type="text/javascript" src="../filestack.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script type="text/javascript" src="../js/menu.js"></script>
 </body>
