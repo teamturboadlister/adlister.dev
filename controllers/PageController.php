@@ -26,6 +26,13 @@ function pageController()
 
         case '/users/edit':
             $mainView = '../views/users/edit.php';
+            if (Auth::check())
+            {
+                $data['user'] = User::find(Input::get('id'));
+            } else {
+                $mainView = '../public/login.php';
+            }
+
             break;
 
         case '/signup':
@@ -42,19 +49,18 @@ function pageController()
                     }
                 break;
 
-        case '/users/account':
+        case 'users/account':
             if (!empty($_GET['search'])) {
                 header("Location: /results?search=". $_GET['search']);
             }
-            if (isset($_SESSION['IS_LOGGED_IN'])) {
-                $mainView = '../public/account.php';
+            elseif (Auth::check())
+            {
+                $data['user'] = User::find(Input::get('id'));
+                $data['items'] = $data['user']->items();
+                header( 'location: /users/account');
 
             } else {
-                $mainView = '../public/views/home.php';
-            }
-            if (!empty($_POST['deleteListing'])) {
-                Ads::deleteAd($_POST['deleteListing']);
-                header("Location: /users/account.php");
+                $mainView = '../public/login.php';
             }
             break;
 

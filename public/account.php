@@ -1,18 +1,4 @@
-<?php
-   // require_once __DIR__  .  '/../database/db_connect.php';
-   require_once __DIR__ . '/../bootstrap.php';
 
-     $user = User::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
-
-     function logout()
-      {
-       session_unset();
-       session_regenerate_id(true); //destroys the data & erasing the session data from server
-       session_destroy();
-       session_start();
-      }
-
-   ?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -34,17 +20,34 @@
             <div class="container">
                <h4> User Id <?=$user->user_id; ?></h4>
                <h4> User Name <?=$user->username; ?></h4>
-               <h4>
-               Email <?=$user->email; ?>
-               <h4>
-               <form method="POST" >
-                  <label for "username">User Name</label>
-                  <input id="username" type="text" name="username">
+               <h4>Email <?=$user->email; ?></h4>
+              <div> class="col-sm-8 text center">
+                   <?php if($user->id == Auth::id()) : ?>
+               </div>
+                <?php endif; ?>
                   <br>
-                  <a class="btn-btn-primary" href="/edit.php" > Edit Account </a>
-                  <a class="btn-btn-primary" href="/../ads/create.php"> Post An Ad </a>
-                  <a class="btn-btn-primary" href="/show.php"> My Ads </a>
-                  <br>
+                  <div class = "row">
+                        <?php foreach($items->attributes as $key => $item) : ?>
+                        <div class="col-md-4">
+                            <h4 class="text-center"><?= $item['description']; ?></h4>
+                        <img src="<?= $item['image_url']; ?>" class="img-responsive center-block">
+                    </div>
+                    <div class="row">
+                <?php endforeach; ?>
+            </div>
+            <?php if($user->id == Auth::id()) : ?>
+                <div class="row text-center">
+                    <a class="btn-btn-primary" href="/edit.php" > Edit Account </a>
+                    <div>
+                        <a class="btn-btn-primary" href="/../ads/create.php"> Post An Ad </a>
+                    </div>
+                    <div>
+                        <a class="btn-btn-primary" href="/../ads/edit.php"> Edit Ad </a>
+                    <div>
+                        <a class="btn-btn-primary" href="/show.php"> Show All Ads </a>
+                    </div>
+            <?php endif; ?>
+                      <br>
                   <button type ='submit' name='logout'>Logout</button>
                </form>
             </div>

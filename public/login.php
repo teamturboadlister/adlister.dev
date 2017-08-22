@@ -33,7 +33,7 @@
                               <button type="submit" class="btn btn-primary">Login</button>
                            </div>
                            <div class="col-sm-6 text-right">
-                              <a href="/signup.php" class="btn btn-success">Go To Signup</a>
+                              <a href="/signup" class="btn btn-success">Go To Signup</a>
                            </div>
                         </div>
                      </form>
