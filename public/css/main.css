@@ -127,14 +127,14 @@ height:100%;
 }
 
 .square-flip {
-	-webkit-perspective: 800;
+	-webkit-perspective: 1000;
 	-moz-perspective: 00;
-	-ms-perspective: 800;
-	perspective: 800;
-	-webkit-transform: perspective(800px);
-	-moz-transform: perspective(800px);
-	-ms-transform: perspective(800px);
-	transform: perspective(800px);
+	-ms-perspective: 1000;
+	perspective: 1000;
+	-webkit-transform: perspective(1000px);
+	-moz-transform: perspective(1000px);
+	-ms-transform: perspective(1000px);
+	transform: perspective(1000px);
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
@@ -380,10 +380,10 @@ height:100%;
 
 .centerflipcards {
 
-	max-width: 90%
+	max-width: 100%
 
 
-	
+
 
 }
 
