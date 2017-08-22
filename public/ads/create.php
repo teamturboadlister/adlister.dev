@@ -3,6 +3,12 @@ require_once __DIR__ . "../../../bootstrap.php";
 
 session_start();
 
+if(isset($_POST["insert"]))
+{
+	$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+	$query = "INSERT INTO image_testing VALUES ('$file')";
+}
+
 
 function newPost()
 {
@@ -63,7 +69,7 @@ newPost();
 	<?php include '../assets/header.php' ?>
 	<div class="container">
 		<h1>Create an ad</h1>
-		<?= var_dump($image) ?>
+		
 		<div class= "col-md-6 col-md-offset-3">
 			<h3>Posting as <?= "placeholder" ?>. </h3>
 			<form method="POST" action="" enctype="multipart/form-data">
@@ -101,7 +107,7 @@ newPost();
 				</div>
 				<div class="row">
 			        <div class="col-sm-6">
-		                <button type="submit" class="btn btn-primary">Submit changes</button>
+		                <button type="submit" name="insert" id="insert" class="btn btn-primary">Submit changes</button>
 		            </div>
 		 	  	</div>
 		    </form>
@@ -109,11 +115,34 @@ newPost();
 		
 	</div>
 </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 	<!-- filestack api -->
-	<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+	<!-- <script src="https://static.filestackapi.com/v3/filestack.js"></script> -->
 	<!-- link to custom js using filestack-->
 	<script type="text/javascript" src="../filestack.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script type="text/javascript" src="../js/menu.js"></script>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+	$('#insert').click(function(){
+		var image_name = $("#image").val();
+		if (image_name == "") 
+		{
+			alert("Please upload an image.");
+			return false; 
+		}
+		else 
+		{
+			var extension = $("#image").val().split('.').pop().toLowerCase();
+			if(jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1)
+			{
+				alert("Invalid image file.");
+				$("#image").val("");
+				return false;
+			}
+		}
+	});
+});
+</script>
