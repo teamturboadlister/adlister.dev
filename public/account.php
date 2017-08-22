@@ -1,36 +1,8 @@
 <?php
-   session_start();
    // require_once __DIR__  .  '/../database/db_connect.php';
    require_once __DIR__ . '/../bootstrap.php';
-   require_once '../models/User.php';
-   require_once '../utils/Auth.php';
 
-     $user = Auth::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
-     $user = [];
-      $message = "";
-      $username = (isset($_POST['username'])) ? $_POST['username'] : "";
-      $password = (isset($_POST['password'])) ? $_POST['password'] : "";
-
-  // 		if(empty($_POST)) {
-  // 			if($username == "username" && $password == "password"){
-  // 				header("Location:/account.php");
-  // 				die();
-  // 			} else {
-  // 				$message = "Invalid login!";
-  // 			}
-  // 		}
-  // 		$user = [
-        //     $_SESSION['IS_LOGGED_IN'] = $user->username,
-        //     $_SESSION['LOG_IN_EMAIL'] = $user->email,
-        //     $_SESSION['LOGGED_IN_ID'] = $user->user_id,
-	    //     'message' => $message
-  // 		];
-          	//return $user;
-  		if(isset($_GET['logout'])) {
-  			logout();
-  			header("Location:/logout.php");
-  			die();
-  		}
+     $user = User::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
 
      function logout()
       {
