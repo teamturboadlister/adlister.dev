@@ -28,6 +28,20 @@ function pageController()
             $mainView = '../views/users/edit.php';
             break;
 
+        case '/signup':
+                $mainView = '../public/signup.php';
+                if(!empty($_POST)) {
+                        $user = new User;
+                        $user->name = Input::get('name');
+                        $user->email = Input::get('email');
+                        $user->username = Input::get('username');
+                        $user->password = Input::get('password');
+                            $user->save();
+                            header( 'location: /users/account');
+                            die;
+                    }
+                break;
+
         case '/users/account':
             if (!empty($_GET['search'])) {
                 header("Location: /results?search=". $_GET['search']);
