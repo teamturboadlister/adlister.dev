@@ -17,7 +17,7 @@ function newPost()
 	if(!is_numeric($price)) {
 		echo "Price must be numeric!";
 		return;
-	// }
+	}
 
 	//info pulled from somewhere else
 	$user_id = "1";
@@ -26,7 +26,7 @@ function newPost()
 
 	$newPost = new Ads();
 	$newPost->user_id = $user_id;
-	// $newPost->username = $username;
+	$newPost->username = $username;
 	$newPost->name = $name;
 	$newPost->price = $price;
 	$newPost->date_posted = $date_posted;
@@ -63,9 +63,12 @@ newPost();
 	<?php include '../assets/header.php' ?>
 	<div class="container">
 		<h1>Create an ad</h1>
-		<?= var_dump($image) ?>
 		<div class= "col-md-6 col-md-offset-3">
 			<h3>Posting as <?= "placeholder" ?>. </h3>
+		    <!-- filestack button -->
+		    <div class="form-group">
+		    	<input type="button" class="btn" value="Upload Image" id="pickWatermark" >
+		    </div>
 			<form method="POST" action="" id="newPost" enctype="multipart/form-data">
 				<div class="name">
 					<label for="name">Name:</label>
@@ -77,6 +80,7 @@ newPost();
 				</div>
 				<div class="form-group">
 					<label for="description">Description:</label>
+					<br>
 					<textarea name="description" cols="40" rows="4"></textarea>
 				</div>
 				<div class="form-group">
@@ -98,8 +102,6 @@ newPost();
 		            </div>
 		 	  	</div>
 		    </form>
-		    <!-- filestack button -->
-		    <input type="button" value="Upload Image" id="pickWatermark" >
 		</div>
 		
 	</div>
@@ -119,10 +121,10 @@ newPost();
         		maxFiles: 1,
         	}).then(function(result){
         		console.log(JSON.stringify(result));
-        		var url = result.filesUploaded[0].url;
-        		console.log(url);	
+        		var handle = result.filesUploaded[0].handle;
+        		console.log(handle);	
 
-        		var htmlString = "<input type='hidden' value='"+url+"' name='handle'></input>";
+        		var htmlString = "<input type='hidden' value='"+handle+"' name='handle'></input>";
         		$("#newPost").append(htmlString);
         	});
         }
