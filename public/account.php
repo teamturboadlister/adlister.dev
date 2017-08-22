@@ -1,13 +1,8 @@
 <?php
-   session_start();
    // require_once __DIR__  .  '/../database/db_connect.php';
    require_once __DIR__ . '/../bootstrap.php';
-   require_once '../models/User.php';
-   require_once '../utils/Auth.php';
 
-     $user = Auth::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
-
-
+     $user = User::findByUsernameOrEmail($_SESSION['IS_LOGGED_IN']);
 
      function logout()
       {

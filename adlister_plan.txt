@@ -6,6 +6,7 @@ SECTIONS:
 1. Build out classes
 	model - 
 	user - 
+	ads-
 2. Build out utilities
 3. Migration files for each table
 	Tables:
