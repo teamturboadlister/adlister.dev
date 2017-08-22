@@ -35,7 +35,7 @@ class Auth
         if (password_verify($password, $user->password)) {
             // sets session variables used for logged in user
             $_SESSION['IS_LOGGED_IN'] = $user->username;
-            $_SESSION['LOGGED_IN_ID'] = $user->id;
+            $_SESSION['LOGGED_IN_ID'] = $user->user_id;
 
             return true;
         }

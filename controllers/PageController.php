@@ -32,7 +32,6 @@ function pageController()
             } else {
                 $mainView = '../public/login.php';
             }
-
             break;
 
         case '/signup':
@@ -44,20 +43,18 @@ function pageController()
                         $user->username = Input::get('username');
                         $user->password = Input::get('password');
                             $user->save();
-                            header( 'location: /users/account');
-                            die;
+                            header( 'location: /account');
+                            die();
                     }
                 break;
 
-        case 'users/account':
-            if (!empty($_GET['search'])) {
-                header("Location: /results?search=". $_GET['search']);
-            }
-            elseif (Auth::check())
+        case '/account':
+            if (Auth::check())
             {
-                $data['user'] = User::find(Input::get('id'));
-                $data['items'] = $data['user']->items();
-                header( 'location: /users/account');
+                Auth::user();
+                $data['user'] = User::find(Input::get('user_id'));
+                $data['ads'] = $data['ads']->name();
+                header( 'location: /account');
 
             } else {
                 $mainView = '../public/login.php';
