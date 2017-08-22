@@ -1,3 +1,14 @@
+.header {
+  max-height: 40%;
+  max-width: 90%;
+
+
+
+}
+
+
+
+
 /*-----footer-----*/
 
 
@@ -73,6 +84,13 @@ height:100%;
 	float:left;
   text-align:center;
 }
+  .hover-text{
+   position:inherit;
+   bottom:90px;
+   width:100%;
+   clear: both;
+}
+
 .footer h5{
 
 	font-size: 9px;
@@ -360,14 +378,14 @@ height:100%;
 
 /*You can delete this style*/
 
-/*.centerflipcards {
-	display: block;
-	width: 1300px;
-	height: 440px;
-	text-align: center;
-	margin: 0 auto;
-	margin-top: 25px;
-}*/
+.centerflipcards {
+
+	max-width: 90%
+
+
+	
+
+}
 
 .clearfix {
 	clear: both;
