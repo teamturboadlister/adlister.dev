@@ -49,8 +49,7 @@ function pageController()
                 break;
 
             case '/login':
-                var_dump($_REQUEST);
-                die();
+
                 if (!empty($_GET['search'])) {
                     header("Location: /results?search=". $_GET['search']);
                 }
