@@ -84,27 +84,27 @@ function pageController()
 
                 break;
 
-            case '/create':
-                if (!empty($_GET['search'])) {
-                    header("Location: /results?search=". $_GET['search']);
-                }
-                $mainView = '../views/ads/create.php';
+            // case '/create':
+            //     if (!empty($_GET['search'])) {
+            //         header("Location: /results?search=". $_GET['search']);
+            //     }
+            //     $mainView = '../views/ads/create.php';
 
-                if (!empty($_POST['category'])
-                    && !empty($_POST['product_name'])
-                    && !empty($_POST['price'])
-                    && !empty($_POST['description'])
-                    && !empty($_POST['sub_category'])
-                    && !empty($_POST['username'])
-                    && !empty($_POST['availability_status'])
-                    && !empty($_POST['pick_up_location'])
-                    && !empty($_POST['location_city'])
-                    && !empty($_POST['location_state'])
-                    && !empty($_POST['contact_info'])) {
-                        Ads::insertAd();
-                        header("Location: /users/account");
-                }
-                break;
+            //     if (!empty($_POST['category'])
+            //         && !empty($_POST['product_name'])
+            //         && !empty($_POST['price'])
+            //         && !empty($_POST['description'])
+            //         && !empty($_POST['sub_category'])
+            //         && !empty($_POST['username'])
+            //         && !empty($_POST['availability_status'])
+            //         && !empty($_POST['pick_up_location'])
+            //         && !empty($_POST['location_city'])
+            //         && !empty($_POST['location_state'])
+            //         && !empty($_POST['contact_info'])) {
+            //             Ads::insertAd();
+            //             header("Location: /users/account");
+            //     }
+            //     break;
 
             case '/edit':
                 $mainView = '../views/ads/edit.php';

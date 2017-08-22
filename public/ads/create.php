@@ -4,7 +4,6 @@ require_once __DIR__ . "../../../bootstrap.php";
 session_start();
 
 
-
 function newPost()
 {
 	$name = Input::escape(Input::get("name"));
@@ -13,21 +12,21 @@ function newPost()
 	$pick_up_location = Input::escape(Input::get("pick_up_location"));
 	$category = Input::escape(Input::get("category"));
 	$sub_category = Input::escape(Input::get("sub_category"));
-	$image = Input::escape(Input::get("image"));
+	$image = Input::escape(Input::get("handle"));
 
 	if(!is_numeric($price)) {
 		echo "Price must be numeric!";
 		return;
-	}
+	// }
 
 	//info pulled from somewhere else
 	$user_id = "1";
-	$username = "Finn Mertens";
+	// $username = "Finn Mertens";
 	$date_posted = date("Y-m-d");
 
 	$newPost = new Ads();
 	$newPost->user_id = $user_id;
-	$newPost->username = $username;
+	// $newPost->username = $username;
 	$newPost->name = $name;
 	$newPost->price = $price;
 	$newPost->date_posted = $date_posted;
@@ -67,7 +66,7 @@ newPost();
 		<?= var_dump($image) ?>
 		<div class= "col-md-6 col-md-offset-3">
 			<h3>Posting as <?= "placeholder" ?>. </h3>
-			<form method="POST" action="" enctype="multipart/form-data">
+			<form method="POST" action="" id="newPost" enctype="multipart/form-data">
 				<div class="name">
 					<label for="name">Name:</label>
 					<input type="text" name="name"></input>
@@ -92,11 +91,8 @@ newPost();
 					<label for="sub_category">Sub-Category:</label>
 					<input type="text" name="sub_category"></input>
 				</div>
-				<!-- <div class="form-group">
-					<label for="image">Image:</label>
-					<input type="file" name="image"></input>	
-				</div>
- -->			<div class="row">
+						
+			<div class="row">
 			        <div class="col-sm-6">
 		                <button type="submit" class="btn btn-primary">Submit changes</button>
 		            </div>
@@ -108,6 +104,8 @@ newPost();
 		
 	</div>
 </div>
+	<!-- jquery cdn -->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 	<script>
         var client = filestack.init("A4e3fBA8JTkOq2h4hG7NDz");
         //Filestack API method 'pick()' that opens the file picker
@@ -118,14 +116,14 @@ newPost();
         		accept: 'image/*',
         		fromSources:
         		['local_file_system', 'facebook', 'googledrive', 'dropbox', 'imagesearch', 'webcam',],
-        		maxFiles: 3,
+        		maxFiles: 1,
         	}).then(function(result){
         		console.log(JSON.stringify(result));
-        		console.log(result.filesUploaded[0].url);
         		var url = result.filesUploaded[0].url;
-        		console.log(url);
-        		var handle = url.substring(33, 52);
-        		console.log(handle);
+        		console.log(url);	
+
+        		var htmlString = "<input type='hidden' value='"+url+"' name='handle'></input>";
+        		$("#newPost").append(htmlString);
         	});
         }
 

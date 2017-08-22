@@ -14,7 +14,7 @@ $query = 'CREATE TABLE ads (
     pick_up_location VARCHAR(255)NOT NULL,
     category VARCHAR(240) NOT NULL,
     sub_category VARCHAR(240) NOT NULL,
-    image blob NOT NULL,
+    image VARCHAR(64) NOT NULL,
     PRIMARY KEY (id)
 )';
 $connection->exec($query);
