@@ -180,15 +180,15 @@ abstract class Model {
      *                     with value from the datbase, null if no
      *                     record was found
      */
-    public static function find($id)
+    public static function find($user_id)
     {
         // Get connection to the database
         self::dbConnect();
 
         //Create select statement using prepared statements
-        $query = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';
+        $query = 'SELECT * FROM ' . static::$table . ' WHERE user_id = :user_id';
         $stmt = self::$connection->prepare($query);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
 
         //Store the resultset in a variable named $result
