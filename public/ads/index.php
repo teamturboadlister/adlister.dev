@@ -26,7 +26,7 @@ require_once __DIR__ . "../../../bootstrap.php";
 					<h4><?= Ads::all($singleAd->availability_status) ?>
 					<h4><?= Ads::all($singleAd->pick_up_location) ?>
 					<h4><?= Ads::all($singleAd->location_city) ?>
-					<h4><?= Ads::all($singleAd->image) ?>
+					<!-- <h4><?= Ads::all($singleAd->image) ?> -->
 				</div>
 			<?php endforeach ?>
 		</section>

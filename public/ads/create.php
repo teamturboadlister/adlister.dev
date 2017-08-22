@@ -63,6 +63,8 @@ newPost();
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
 </head>
 <body>
+
+
 <?php include_once '../assets/menu.php'; ?>
 <div id="content">
 	<div class="menu-trigger"></div>
@@ -101,10 +103,10 @@ newPost();
 					<label for="location_city">Location City:</label>
 					<input type="text" name="location_city"></input>
 				</div>
-				<div class="form-group">
+			<!-- 	<div class="form-group">
 					<label for="image">Image:</label>
 					<input type="file" id="image" name="image"></input>	
-				</div>
+				</div> -->
 				<div class="row">
 			        <div class="col-sm-6">
 		                <button type="submit" name="insert" id="insert" class="btn btn-primary">Submit changes</button>
@@ -115,9 +117,9 @@ newPost();
 		
 	</div>
 </div>
-	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<input type="button" value="Upload" onclick="showPicker()" />
 	<!-- filestack api -->
-	<!-- <script src="https://static.filestackapi.com/v3/filestack.js"></script> -->
+	<script src="https://static.filestackapi.com/v3/filestack.js"></script>
 	<!-- link to custom js using filestack-->
 	<script type="text/javascript" src="../filestack.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
