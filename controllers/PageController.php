@@ -21,28 +21,28 @@ function pageController()
             if (!empty($_GET['search'])) {
                 header("Location: /results?search=". $_GET['search']);
             }
-            $mainView = '../views/home.php';
+            $mainView = '../public/views/home.php';
             break;
 
         case '/users/edit':
             $mainView = '../views/users/edit.php';
             break;
 
-            case '/users/account':
-                if (!empty($_GET['search'])) {
-                    header("Location: /results?search=". $_GET['search']);
-                }
-                if (isset($_SESSION['IS_LOGGED_IN'])) {
-                    $mainView = '../views/users/account.php';
+        case '/users/account':
+            if (!empty($_GET['search'])) {
+                header("Location: /results?search=". $_GET['search']);
+            }
+            if (isset($_SESSION['IS_LOGGED_IN'])) {
+                $mainView = '../public/account.php';
 
-                } else {
-                    $mainView = '../views/home.php';
-                }
-                if (!empty($_POST['deleteListing'])) {
-                    Ads::deleteAd($_POST['deleteListing']);
-                    header("Location: /users/account.php");
-                }
-                break;
+            } else {
+                $mainView = '../public/views/home.php';
+            }
+            if (!empty($_POST['deleteListing'])) {
+                Ads::deleteAd($_POST['deleteListing']);
+                header("Location: /users/account.php");
+            }
+            break;
 
             case '/results':
                 $mainView = '../views/ads/index.php';
@@ -52,41 +52,21 @@ function pageController()
                 if (!empty($_GET['search'])) {
                     header("Location: /results?search=". $_GET['search']);
                 }
-                $mainView = '../views/users/login.php';
-                $data['message'] = '';
-                if(
-                    !empty($_POST['username']) &&
-                    !empty($_POST['password']) &&
-                    empty($_POST['username']) &&
-                    empty($_POST['name']) 	&&
-                    empty($_POST['email']) 	&&
-                    empty($_POST['password']) &&
-                    !empty(User::findByUsernameOrEmail($_POST['usernameOrEmail'])) &&
-                    password_verify($_POST['password'], User::findByUsernameOrEmail($_POST['usernameOrEmail'])->password)
-                    ) {
-                    $usernameOrEmail = Input::get('usernameOrEmail');
+                $mainView = '../public/login.php';
+                
+                if(!empty($_POST)) {
+                    $username = Input::get('username');
                     $password = Input::get('password');
-                    Auth::attempt($usernameOrEmail, $password);
-                    $_SESSION['IS_LOGGED_IN'] = $usernameOrEmail;
-                    var_dump(User::findByUsernameOrEmail($usernameOrEmail));
-                    header("Location: /users/account.php");
-
-                } elseif (!empty($_POST['username']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && $_POST['password'] === $_POST['password'] && empty($_POST['username']) && empty($_POST['password'])) {
-                    $_SESSION['IS_LOGGED_IN'] = $_POST['username'];
-                    User::insertUser();
-                    $usernameOrEmail = $_POST['username'];
-                    $password = $_POST['password'];
-                    Auth::attempt($usernameOrEmail, $password);
-                    header("Location: /users/account.php");
-
-                } else if (
-                    (!empty($_POST['username']) ||
-                    !empty($_POST['password'])) &&
-                    (empty(User::findByUsernameOrEmail($_POST['username'])) ||
-                    !password_verify($_POST['password'], User::findByUsernameOrEmail($_POST['username'])->password))
-                    ) {
-                    $data['message'] = "Invalid username or password.";
+                    Auth::attempt($username, $password);
                 }
+
+                if(Auth::check()) {
+                    header("Location: /users/account");
+                    die();
+                }
+
+                $data['message'] = '';
+                
                 break;
 
             case '/create':
@@ -121,7 +101,7 @@ function pageController()
                 break;
 
             default:    // displays 404 if route not specified above
-                $mainView = '../views/404.php';
+                $mainView = '../public/views/404.php';
                 break;
         }
 
