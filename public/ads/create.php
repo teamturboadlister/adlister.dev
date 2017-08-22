@@ -3,9 +3,7 @@ require_once __DIR__ . "../../../bootstrap.php";
 
 session_start();
 
-if (isset($_POST["upload"])){
-	$target = "/../img/.basename($_FILES["image"])"
-}
+
 
 function newPost()
 {
