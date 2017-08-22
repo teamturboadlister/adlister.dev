@@ -54,6 +54,8 @@ newPost();
     <link rel="stylesheet" type="text/css" href="../css/menu.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <!--Filestack API in HTML file -->
+    <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
 </head>
 <body>
 <?php include_once '../assets/menu.php'; ?>
@@ -90,20 +92,32 @@ newPost();
 					<label for="sub_category">Sub-Category:</label>
 					<input type="text" name="sub_category"></input>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="image">Image:</label>
 					<input type="file" name="image"></input>	
 				</div>
-				<div class="row">
+ -->			<div class="row">
 			        <div class="col-sm-6">
 		                <button type="submit" class="btn btn-primary">Submit changes</button>
 		            </div>
 		 	  	</div>
 		    </form>
+		    <!-- filestack button -->
+		    <input type="button" value="Pick Watermark" id="pickWatermark" >
 		</div>
 		
 	</div>
 </div>
+	<script>
+        var client = filestack.init("A4e3fBA8JTkOq2h4hG7NDz");
+        //Filestack API method 'pick()' that opens the file picker
+        document.getElementById("pickWatermark").addEventListener("click", pickMark);
+        function pickMark() {
+        	console.log("Picking Watermark");
+        	client.pick({});
+        }
+
+    </script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script type="text/javascript" src="../js/menu.js"></script>
 </body>
