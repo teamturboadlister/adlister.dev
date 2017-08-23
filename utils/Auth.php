@@ -36,7 +36,7 @@ class Auth
             // sets session variables used for logged in user
             $_SESSION['IS_LOGGED_IN'] = $user->username;
             $_SESSION['LOGGED_IN_ID'] = $user->user_id;
-
+            $_SESSION['ERROR_MESSAGE'] = 'Logon successful';
             return true;
         }
 
