@@ -120,6 +120,20 @@ class Ads extends Model
 		$stmt->execute();
 	}
 
+	public function paginate($pageNo, $resultsPerPage = 6) {
+		self::dbConnect();
+
+		$limit = $resultsPerPage;
+		$offset (($pageNo * $resultsPerPage) - $resultsPerPage);
+		$paginateQuery = "SELECT * FROM " . self::$table . " ORDER BY name LIMIT :limit OFFSET :offset";
+		$stmt = self::$connection->prepare($paginateQuery);
+	    $stmt->bindValue(":limit", (int) $limit, PDO::PARAM_INT);
+	    $stmt->bindValue(":offset", (int) $offset, PDO::PARAM_INT);
+	    $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+	}
+
 
 
 }
