@@ -1,7 +1,7 @@
 <div class="menu-trigger"></div>
-<div class="wrapper">
+<!-- <div class="wrapper">
    <div class="menu-2" data-menu="2"></div>
-</div>
+</div> -->
 <!-- header panel -->
 <?php include 'assets/header.php';?>
 <!-- Content panel -->
@@ -22,7 +22,7 @@
             <div class='square2' data-image="img/armor-flip.jpg">
                <div class="square-container2">
                   <div class="align-center"></div>
-                  <a href="http://adlister.dev" target="_blank" class="boxshadow kallyas-button">View More</a>
+                  <a href="http://adlister.dev/ads" target="_blank" class="boxshadow kallyas-button">View More</a>
                </div>
                <div class="flip-overlay"></div>
             </div>
@@ -41,7 +41,7 @@
             <div class='square2' data-image="img/weapons-flip.jpg">
                <div class="square-container2">
                   <div class="align-center"></div>
-                  <a href="http://adlister.dev" target="_blank" class="boxshadow kallyas-button">View More</a>
+                  <a href="http://adlister.dev/ads" target="_blank" class="boxshadow kallyas-button">View More</a>
                </div>
                <div class="flip-overlay"></div>
             </div>
@@ -60,7 +60,7 @@
             <div class='square2' data-image="img/tools-flip.jpg">
                <div class="square-container2">
                   <div class="align-center"></div>
-                  <a href="http://adlister.dev" target="_blank" class="boxshadow kallyas-button">View More</a>
+                  <a href="http://adlister.dev/ads" target="_blank" class="boxshadow kallyas-button">View More</a>
                </div>
                <div class="flip-overlay"></div>
             </div>
@@ -79,7 +79,7 @@
             <div class='square2' data-image="img/tort-flip.jpg">
                <div class="square-container2">
                   <div class="align-center"></div>
-                  <a href="http://adlister.dev" target="_blank" class="boxshadow kallyas-button">View More</a>
+                  <a href="http://adlister.dev/ads" target="_blank" class="boxshadow kallyas-button">View More</a>
                </div>
                <div class="flip-overlay"></div>
             </div>
@@ -98,7 +98,7 @@
             <div class='square2' data-image="img/livestock-flip.jpg">
                <div class="square-container2">
                   <div class="align-center"></div>
-                  <a href="http://adlister.dev" target="_blank" class="boxshadow kallyas-button">View More</a>
+                  <a href="http://adlister.dev/ads" target="_blank" class="boxshadow kallyas-button">View More</a>
                </div>
                <div class="flip-overlay"></div>
             </div>
@@ -117,7 +117,7 @@
             <div class='square2' data-image="img/ales-flip.jpg">
                <div class ="square-container2">
                   <div class="align-center"></div>
-                  <a href="http://adlister.dev" target="_blank" class="boxshadow kallyas-button">View More</a>
+                  <a href="http://adlister.dev/ads" target="_blank" class="boxshadow kallyas-button">View More</a>
                </div>
                <div class="flip-overlay"></div>
             </div>
