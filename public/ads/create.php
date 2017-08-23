@@ -1,28 +1,31 @@
 <?php
-require_once __DIR__ . "../../../bootstrap.php";
+   require_once __DIR__ . "../../../bootstrap.php";
 
-session_start();
+   session_start();
 
 
-function newPost()
-{
-	$name = Input::escape(Input::get("name"));
-	$price = Input::escape(Input::get("price"));
-	$description = Input::escape(Input::get("description"));
-	$pick_up_location = Input::escape(Input::get("pick_up_location"));
-	$category = Input::escape(Input::get("category"));
-	$sub_category = Input::escape(Input::get("sub_category"));
-	$image = Input::escape(Input::get("handle"));
+   function newPost()
+   {
+   	$name = Input::escape(Input::get("name"));
+   	$price = Input::escape(Input::get("price"));
+   	$description = Input::escape(Input::get("description"));
+   	$pick_up_location = Input::escape(Input::get("pick_up_location"));
+   	$category = Input::escape(Input::get("category"));
+   	$sub_category = Input::escape(Input::get("sub_category"));
+   	$image = Input::escape(Input::get("handle"));
+
 
 	if(!is_numeric($price)) {
 		echo "Price must be numeric!";
 		return;
 	}
 
-	//info pulled from somewhere else
-	$user_id = "1";
-	// $username = "Finn Mertens";
-	$date_posted = date("Y-m-d");
+
+   	//info pulled from somewhere else
+   	$user_id = "1";
+   	// $username = "Finn Mertens";
+   	$date_posted = date("Y-m-d");
+
 
 	$newPost = new Ads();
 	$newPost->user_id = $user_id;
@@ -38,15 +41,16 @@ function newPost()
 	$newPost->image = $image;
 	$newPost->insertAd();
 
-var_dump($image);
 
-}
-newPost();
+   var_dump($image);
 
-?>
+   }
+   newPost();
 
+   ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Create Listing</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -129,8 +133,9 @@ newPost();
         	});
         }
 
-    </script>
-	<script type="text/javascript" src="../js/main.js"></script>
-	<script type="text/javascript" src="../js/menu.js"></script>
-</body>
+
+      </script>
+      <script type="text/javascript" src="../js/main.js"></script>
+      <script type="text/javascript" src="../js/menu.js"></script>
+   </body>
 </html>

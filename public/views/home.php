@@ -1,4 +1,7 @@
 <div class="menu-trigger"></div>
+<div class="wrapper">
+   <div class="menu-2" data-menu="2"></div>
+</div>
 <!-- header panel -->
 <?php include 'assets/header.php';?>
 <!-- Content panel -->
@@ -62,8 +65,6 @@
                <div class="flip-overlay"></div>
             </div>
          </div>
-      </div>
-      <div class="row">
          <div class="square-flip">
             <div class='square' data-image="img/tort-back.jpg">
                <div class="square-container">

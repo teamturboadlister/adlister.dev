@@ -53,7 +53,7 @@ function pageController()
             {
                 Auth::user();
                 $data['user'] = User::find(Input::get('user_id'));
-                $data['ads'] = $data['ads']->name();
+                $data['user'] = $data['user']->name($name);
                 header( 'location: /account');
 
             } else {
@@ -79,12 +79,10 @@ function pageController()
                 }
 
                 if(Auth::check()) {
-                    header("Location: /users/account");
+                    header("Location: /account");
                     die();
                 }
-
                 $data['message'] = '';
-
                 break;
 
             // case '/create':
