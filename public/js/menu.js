@@ -12,3 +12,21 @@
 	}
 
 }).call(this);
+
+/*
+  Hamburger Button
+*/
+
+var menu = $('.wrapper div');
+
+menu.on('click', function() {
+  var menuNum = $(this).data('menu');
+  $(this).toggleClass('menu-'+ menuNum +'-active');
+
+	
+
+})
+
+
+// var menuNum = $(this).data('menu');
+// $(this).toggleClass('menu-'+ menuNum +'-active');

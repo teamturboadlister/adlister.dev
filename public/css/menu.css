@@ -2,6 +2,9 @@
 font-family: 'Arvo', serif;
 }
 
+
+
+
 .nav-background {
 	/*background-image: url('img/nav-back.png');*/
 	/*width:60px;
@@ -12,6 +15,7 @@ font-family: 'Arvo', serif;
 	z-index: -1;
 	width: 600px;
 	height: 800px;
+	opacity: 0.25;
 }
 
 li a {
@@ -26,7 +30,7 @@ li a {
 /* Change the link color on hover */
 
 li a:hover {
-	background-color: #555;
+	background-color: #fff;
 	color: #white;
 }
 
@@ -54,7 +58,7 @@ li a:hover {
 
 body {
 	margin: 0;
-	background: #875b54;
+	background: #212121;
 	color: #353d46;
 	font: 18px/27px 'Oxygen', sans-serif;
 }
