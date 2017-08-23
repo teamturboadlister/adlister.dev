@@ -1,18 +1,16 @@
 <br />
-
 <br />
-<div ><section class="hover-text">
-<h5 >Hover over the circle below</h5>
-</section>
+<div >
+   <section class="hover-text">
+      <h5 >Hover over the circle below</h5>
+   </section>
 </div>
 <div class="footer">
-
    <div id="button"></div>
    <div id="container">
       <div id="cont">
          <div class="footer_center">
             <br />
-
             <br />
             <div class="clearfix"></div>
             <p class="dark-mode">Made with ♡ by Team Turbo</p>
