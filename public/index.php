@@ -1,19 +1,17 @@
 <?php
-session_start();
-require_once __DIR__ . '/../bootstrap.php';
-?>
+   session_start();
+   require_once __DIR__ . '/../bootstrap.php';
+   ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <?php require 'views/partials/head.php'; ?>
-</head>
-<body>
+   <head>
+      <?php require 'views/partials/head.php'; ?>
+   </head>
+   <body>
       <?php include 'assets/menu.php';?>
-
       <!-- menu panel -->
       <div id="content">
          <?php require $mainView; ?>
-
          <?php include 'assets/footer.php' ?>
       </div>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
