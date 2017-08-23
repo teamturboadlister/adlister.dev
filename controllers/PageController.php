@@ -78,7 +78,7 @@ function pageController()
             } else {
                 $mainView = '../public/login.php';
             }
-            return $data;
+            
             break;
 
             case '/results':
