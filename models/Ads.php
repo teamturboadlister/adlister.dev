@@ -6,32 +6,32 @@ class Ads extends Model
 {
     protected static $table = 'ads';
 
-    public static function all()
-    {
-		self::dbConnect();
-		$ads = self::$connection->query('SELECT * FROM ' . self::$table);
-		$adArray = [];
+ //    public static function all()
+ //    {
+	// 	self::dbConnect();
+	// 	$ads = self::$connection->query('SELECT * FROM ' . self::$table);
+	// 	$adArray = [];
 
-		foreach ($ads as $ad) {
-			$singleAd = new Ads();
-			$singleAd->id = $ad['id'];
-            $singleAd->user_id = $ad['user_id'];
-            $singleAd->username = $ad['username'];
-			$singleAd->date_posted = $ad['date_posted'];
-			$singleAd->category = $ad['category'];
-			$singleAd->price = $ad['price'];
-			$singleAd->description = $ad['description'];
-			$singleAd->availability_status = $ad['availability_status'];
-            $singleAd->pick_up_location = $ad['pick_up_location'];
-            $singleAd->location_city = $ad['location_city'];
-			$singleAd->image = $ad['image'];
-			array_push($adsArray, $singleAd);
+	// 	foreach ($ads as $ad) {
+	// 		$singleAd = new Ads();
+	// 		$singleAd->id = $ad['id'];
+ //            $singleAd->user_id = $ad['user_id'];
+ //            $singleAd->name = $ad['name'];
+	// 		$singleAd->price = $ad['price'];
+	// 		$singleAd->date_posted = $ad['date_posted'];
+	// 		$singleAd->description = $ad['description'];
+	// 		$singleAd->availability_status = $ad['availability_status'];
+ //            $singleAd->pick_up_location = $ad['pick_up_location'];
+	// 		$singleAd->category = $ad['category'];
+	// 		$singleAd->sub_category = $ad['sub_category'];
+	// 		$singleAd->image = $ad['image'];
+	// 		array_push($adsArray, $singleAd);
 
-		}
+	// 	}
 
-		return $adArray;
+	// 	return $adArray;
 
-	}
+	// }
 
     public static function findAdByKeyword($keyword){
 		self::dbConnect();
