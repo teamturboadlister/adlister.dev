@@ -52,13 +52,33 @@ function pageController()
             if (Auth::check())
             {
                 Auth::user();
-                $data['user'] = User::find(Input::get('user_id'));
-                $data['user'] = $data['user']->name($name);
+                $data = [];
+    		$message = "";
+    		$username = (isset($_POST['username'])) ? $_POST['username'] : "";
+    		$password = (isset($_POST['password'])) ? $_POST['password'] : "";
+
+    		if(empty($_POST)) {
+    			if($username == "username" && $password == "password"){
+    				header("Location:/account.php");
+    				die();
+    			} else {
+    				$message = "Invalid login!";
+    			}
+
+    		$data = [
+            'user_id' => $user_id,
+    		'username' => $username,
+    		'password'=> $password,
+            'name' => $name,
+    		'message' => $message
+    		];
+        }
                 header( 'location: /account');
 
             } else {
                 $mainView = '../public/login.php';
             }
+            
             break;
 
             case '/results':

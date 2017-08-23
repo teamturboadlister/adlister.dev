@@ -45,3 +45,20 @@ SECTIONS:
 4. Seeder file for each table
 5. Page contoller
 6. Views: HTML & CSS Design
+
+
+NOTES:
+
+*obstacles:
+	-- page controller case logic over-writing the logic in the individual pages
+	-- page controller logic not running due to removal of php logic in index
+	-- file directory structure changes may have caused conflict with menu-paths predefined in the templates
+
+* immediate recommendations to resolve issues:
+	-- put all the logic at the top of each page OR:
+	-- add back the removed php data in each page and restructure	
+
+* lessons learned
+	-- use more time planning
+	-- clearly communicate structure changes
+	-- ensure still on task, more frequent check-ins

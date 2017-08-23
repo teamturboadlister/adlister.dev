@@ -11,24 +11,27 @@
                <h4>Email <?=$user->email; ?></h4>
               <div> class="col-sm-8 text center">
                   <br>
-                  <div class = "row">
-                        <?php foreach($ads->attributes as $key => $ad) : ?>
+                  <!-- <div class = "row">
+                        <?php //foreach($ads->attributes as $key => $ad) : ?>
                         <div class="col-md-4">
-                            <h4 class="text-center"><?= $ad['description']; ?></h4>
-                        <img src="<?= $ad['image_url']; ?>" class="img-responsive center-block">
+                            <h4 class="text-center"><?= //$ad['description']; ?></h4>
+                        <img src="<?= //$ad['image_url']; ?>" class="img-responsive center-block">
                     </div>
                     <div class="row">
-                <?php endforeach; ?>
-            </div>
+                <?php //endforeach; ?>
+            </div> -->
                 <div class="row text-center">
-                    <a class="btn-btn-primary" href="/edit.php" > Edit Account </a>
+                    <a class="btn-btn-primary" href="views/edit.php" > Edit Account </a>
                     <div>
                         <a class="btn-btn-primary" href="/../ads/create.php"> Post An Ad </a>
                     </div>
                     <div>
+                        <a class="btn-btn-primary" href="/../ads/ads.php"> My Ads</a>
+                    </div>
+                    <div>
                         <a class="btn-btn-primary" href="/../ads/edit.php"> Edit Ad </a>
                     <div>
-                        <a class="btn-btn-primary" href="/show.php"> Show All Ads </a>
+                        <a class="btn-btn-primary" href="ads/show.php"> Show All Ads </a>
                     </div>
                </form>
             </div>
