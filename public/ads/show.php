@@ -2,6 +2,16 @@
 // require_once "/../db_connect.php"
 // require_once "/../Input.php";
 // require_once"/../Auth.php";
+require_once __DIR__ . "../../../bootstrap.php";
+
+function pullMe()
+{
+	$query = "SELECT * FROM ads WHERE name LIKE 'King%'";
+	$info = $connection->exec($query);
+	return $info;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
